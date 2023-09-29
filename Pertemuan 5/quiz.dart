@@ -18,7 +18,7 @@ void main(){
 
   //Tugas 4
   final array1 = [1, 2, 3];
-  final array2 = [4, 5, 6];
+  const array2 = [4, 5, 6];
 
   array1[0] = 100;
   array2[0] = 100;
@@ -42,9 +42,9 @@ void main(){
 
   //Tugas 6
   String firstName = 'Rr. Denti';
-  String lastName = 'Nurramadhona';
+  String LastName = 'Nurramadhona';
 
-  var fulName = '$firstName ${lastName}';
+  var fulName = '$firstName ${LastName}';
 
   print(fulName);
 
