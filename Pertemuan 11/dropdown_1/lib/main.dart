@@ -20,7 +20,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String? selectedValue; // Initialize with null
+
   final List<String> data = [
     "Rr",
     "Denti",
@@ -49,18 +56,22 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: DropdownButton(
-            hint: Text("Pilih..."),
-            onChanged: (value) {
-              print(value);
-            },
-            items: data
-                .map(
-                  (e) => DropdownMenuItem(
-                    value: e,
-                    child: Text(e),
-                  ),
-                )
-                .toList()),
+          hint: Text("Pilih..."), // Add a hint
+          value: selectedValue,
+          onChanged: (value) {
+            setState(() {
+              selectedValue = value as String?;
+            });
+          },
+          items: data
+              .map(
+                (e) => DropdownMenuItem(
+                  value: e,
+                  child: Text(e),
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }
